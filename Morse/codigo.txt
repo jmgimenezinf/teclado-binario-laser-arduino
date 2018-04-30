@@ -1,0 +1,25 @@
+ cont_hight=0;
+    cont_low=0;
+ if (lux>0){
+    cont_hight=cont_hight +1;
+    delay(10);
+    tiempo_espera=1;
+    while (lightMeter.readLightLevel()>0){
+        delay(tiempo_espera);
+        cont_hight=cont_hight +1;
+      }
+        Serial.print("Cantidad de Unos:");
+        Serial.println(cont_hight);
+  }else {
+      cont_low=cont_low + 1;
+     // Serial.println(lux);
+      delay(10);
+      tiempo_espera=1;
+      while (lightMeter.readLightLevel()== 0){
+        delay(tiempo_espera);
+        cont_low=cont_low +1;
+      }
+      Serial.print("Cantidad de Ceros:");
+      Serial.println(cont_low);
+      
+    }
